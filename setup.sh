@@ -33,11 +33,3 @@ fi
 # sym-link the bash profile into place and source it. it will move the other files into place and source them
 ln -s "${DOT_FILES_DIR}/.bash_profile" ~/
 source ~/.bash_profile
-
-
-
-
-
-
-
-

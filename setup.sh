@@ -3,8 +3,8 @@ CURR_DATE=$(date +"%T")
 DOT_FILES_DIR=$(pwd)
 
 # update the value of $DOT_FILES_DIR in .bash_profile
-echo "exports DOT_FILES_DIR=$DOT_FILES_DIR" > /tmp/newfile
-cat bash_profile.sh | grep -v DOT_FILES_DIR >> /tmp/newfile
+echo "export DOT_FILES_DIR=$DOT_FILES_DIR" > /tmp/newfile
+cat .bash_profile | grep -v "export DOT_FILES_DIR" >> /tmp/newfile
 cp /tmp/newfile .bash_profile
 
 # move existing copies of files out of the way without deleting

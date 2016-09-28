@@ -1,3 +1,4 @@
+exports DOT_FILES_DIR=/Users/ronald/projects/dot-files
 # Import functions and aliases created in ~/.bash_alises file
 if [ -f ~/.bash_aliases ]
     then rm ~/.bash_aliases

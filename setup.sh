@@ -1,5 +1,11 @@
+# set up variables
 CURR_DATE=$(date +"%T")
 DOT_FILES_DIR=$(pwd)
+
+# update the value of $DOT_FILES_DIR in .bash_profile
+echo "exports DOT_FILES_DIR=$DOT_FILES_DIR" > /tmp/newfile
+cat .bash_profile >> /tmp/newfile
+cp /tmp/newfile .bash_profile
 
 
 if [ -f ~/.bash_profile ]
@@ -14,11 +20,6 @@ ln -s "${DOT_FILES_DIR}/.bash_profile " ~/
 echo "exports DOT_FILES_DIR=$DOT_FILES_DIR" >> .bash_profile
 
 source ~/.bash_profile
-#
-#
-#ln -s .bash_profile ~/
-#ln -s .bash_aliases ~/
-#
 
 
 

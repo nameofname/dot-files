@@ -1,16 +1,22 @@
 exports DOT_FILES_DIR=/Users/ronald/projects/dot-files
+
 # Import functions and aliases created in ~/.bash_alises file
 if [ -f ~/.bash_aliases ]
     then rm ~/.bash_aliases
 fi
-ln -s "${DOT_FILES_DIR}/.bash_aliases " ~/
+ln -s "${DOT_FILES_DIR}/.bash_aliases" ~/
 source ~/.bash_aliases
+
+if [ -f ~/.vimrc ]
+    then rm ~/.vimrc
+fi
+ln -s "${DOT_FILES_DIR}/.vimrc" ~/
 
 # Use git tab completion.
 if [ -f ~/git-completion.sh ]
     then rm ~/git-completion.sh;
 fi
-ln -s "${DOT_FILES_DIR}/git-completion.sh " ~/
+ln -s "${DOT_FILES_DIR}/git-completion.sh" ~/
 . ~/git-completion.sh
 
 # use secret keys file :
@@ -33,31 +39,6 @@ export PYTHONPATH=/usr/local/Cellar/pygtk/2.24.0
 export HOMEBREW_GITHUB_API_TOKEN=ee881d564746b7bb59f70b625e5d3c2b91cfa458
 export SELENIUM_JAR=/usr/local/bin/selenium-server-standalone.jar
 export PATH="/usr/local/sbin:$PATH" # adding sbin to PATH for brew
-
-# The color designators are as follows:
-# a black
-# b red
-# c green
-# d brown (yellow)
-# e blue
-# f magenta
-# g cyan
-# h light grey
-# x default foreground or background
-# NOTE* Colors a-h are available in bold using upper case letter designations
-# 
-# The order of the attributes are as follows:
-# 1. directory
-# 2. symbolic link
-# 3. socket
-# 4. pipe
-# 5. executable
-# 6. block special
-# 7. character special
-# 8. executable with setuid bit set
-# 9. executable with setgid bit set
-# 10. directory writable to others, with sticky bit
-# 11. directory writable to others, without sticky bit
 
 # Set up terminal colors : 
 function parse_git_branch () {

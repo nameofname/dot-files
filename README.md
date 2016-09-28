@@ -16,6 +16,7 @@ It will udpate the location of the dot files directory (this repo) - and then sy
 
 ```sh
 ./setup.sh
+source ~/.bash_profile
 ```
 
 

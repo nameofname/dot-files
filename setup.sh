@@ -9,13 +9,25 @@ cp /tmp/newfile .bash_profile
 
 # move existing copies of files out of the way without deleting
 if [ -f ~/.bash_profile ]
-    then mv ~/.bash_profile "~/.bash_profile.$CURR_DATE.BAK"
+    then
+    if [ -L ~/.bash_profile ]
+        then unlink ~/.bash_profile
+        else eval "mv ~/.bash_profile ~/.bash_profile.${CURR_DATE}.BAK"
+    fi
 fi
-if [ -f ~/.bash_aliases ] 
-    then mv ~/.bash_aliases "~/.bash_aliases.$CURR_DATE.BAK"
+if [ -f ~/.bash_aliases ]
+    then
+    if [ -L ~/.bash_aliases ]
+        then unlink ~/.bash_aliases
+        else eval "mv ~/.bash_aliases ~/.bash_aliases.${CURR_DATE}.BAK"
+    fi
 fi
 if [ -f ~/.vimrc ]
-    then mv ~/.vimrc "~/.vimrc.$CURR_DATE.BAK"
+    then
+    if [ -L ~/.vimrc ]
+        then unlink ~/.vimrc
+        else eval "mv ~/.vimrc ~/.vimrc.${CURR_DATE}.BAK"
+    fi
 fi
 
 # sym-link the bash profile into place and source it. it will move the other files into place and source them

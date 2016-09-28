@@ -1,18 +1,25 @@
-# Import functions and aliases created in ~/.bash_alises file 
-if [ -f ~/.bash_aliases ] 
+# Import functions and aliases created in ~/.bash_alises file
+if [ -f ~/.bash_aliases ]
     then rm ~/.bash_aliases
 fi
-ln -s ~/projects/dot-files/.bash_aliases ~/
+ln -s "${DOT_FILES_DIR}/.bash_aliases " ~/
 source ~/.bash_aliases
 
 # Use git tab completion.
-if [ -f ~/git-completion.sh ] 
+if [ -f ~/git-completion.sh ]
     then rm ~/git-completion.sh;
 fi
-ln -s ~/projects/dot-files/git-completion.sh ~/
+ln -s "${DOT_FILES_DIR}/git-completion.sh " ~/
 . ~/git-completion.sh
 
-# Fix for Node.js EMFILE error : 
+# use secret keys file :
+if [ -f ~/.secret_keys ]
+    then
+        source ~/.secret_keys
+fi
+
+
+# Fix for Node.js EMFILE error :
 ulimit -S -n 2048
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home
@@ -64,9 +71,3 @@ YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
 NO_COLOUR="\[\033[0m\]"
 PS1="$GREEN\u$RED:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
-
-# use secret keys file : 
-if [ -f ~/.secret_keys ] 
-    then 
-        source ~/.secret_keys
-fi

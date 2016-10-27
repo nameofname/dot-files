@@ -36,7 +36,6 @@ export NODE_ENV=dev
 export NODE_SERVICE_HOST=oathkeeper
 export GOPATH=~/gocode
 export PYTHONPATH=/usr/local/Cellar/pygtk/2.24.0
-export HOMEBREW_GITHUB_API_TOKEN=ee881d564746b7bb59f70b625e5d3c2b91cfa458
 export SELENIUM_JAR=/usr/local/bin/selenium-server-standalone.jar
 export PATH="/usr/local/sbin:$PATH" # adding sbin to PATH for brew
 

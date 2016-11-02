@@ -22,6 +22,7 @@ alias gov2='cd ~/projects/1stdibs-admin-v2'
 alias gov1='cd ~/projects/1stdibs-admin-v1'
 alias gobunsen='cd ~/projects/1stdibs-admin-v2/node_modules/bunsen'
 alias gopan='cd ~/projects/my_pantry'
+alias goim='cd ~/projects/dibs-internal-inventory-management'
 govag () {
     godibs 
     vagrant ssh 

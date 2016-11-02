@@ -25,18 +25,21 @@ source ~/.bash_profile
 #A note on colors :
 
  The color designators used in LSCOLORS (bash_profile.sh) are as follows:
- a black
- b red
- c green
- d brown (yellow)
- e blue
- f magenta
- g cyan
- h light grey
- x default foreground or background
+
+* a black
+* b red
+* c green
+* d brown (yellow)
+* e blue
+* f magenta
+* g cyan
+* h light grey
+* x default foreground or background
+
  NOTE* Colors a-h are available in bold using upper case letter designations
 
  The order of the attributes are as follows:
+
  1. directory
  2. symbolic link
  3. socket

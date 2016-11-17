@@ -118,6 +118,7 @@ function x () {
     fi
 }
 
+alias txt='pbpaste | pbcopy'
 
 function _print() {
     echo "$1" | tr -d ' |\n' | pbcopy
@@ -188,6 +189,15 @@ gpo() {
 
 clearSolrItem() {
     IID=$1
-    URL="http://jameson/soa/inventory-3/1/solr/item/$IID?indexMode=sync"
+    URL="http://mark:17007/inventory-3/1/solr/item/$IID?indexMode=sync"
     curl $URL -i
+}
+
+curltimer() {
+    url=$1
+    curl -w "time_namelookup:  %{time_namelookup} \ntime_connect:  %{time_connect} \ntime_appconnect:  %{time_appconnect} \ntime_pretransfer:  %{time_pretransfer} \ntime_redirect:  %{time_redirect} \ntime_starttransfer:  %{time_starttransfer} \n---------- \ntime_total:  %{time_total}\n" -o /dev/null -s $url
+}
+
+ngrep() {
+    grep -r --exclude-dir node_modules $1 .
 }

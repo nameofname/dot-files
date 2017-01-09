@@ -29,7 +29,8 @@ fi
 # Fix for Node.js EMFILE error :
 ulimit -S -n 2048
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home
 export CATALINA_HOME=/usr/local/Cellar/tomcat/7.0.29/libexec
 export NODE_PATH=/usr/local/lib/node_modules/
 export NODE_ENV=dev

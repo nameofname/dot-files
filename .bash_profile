@@ -34,7 +34,6 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Hom
 export CATALINA_HOME=/usr/local/Cellar/tomcat/7.0.29/libexec
 export NODE_PATH=/usr/local/lib/node_modules/
 export NODE_ENV=dev
-export NODE_SERVICE_HOST=qa
 export GOPATH=~/gocode
 export PYTHONPATH=/usr/local/Cellar/pygtk/2.24.0
 export SELENIUM_JAR=/usr/local/bin/selenium-server-standalone.jar

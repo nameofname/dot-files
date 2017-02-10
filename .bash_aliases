@@ -23,6 +23,7 @@ alias gov1='cd ~/projects/1stdibs-admin-v1'
 alias gobunsen='cd ~/projects/1stdibs-admin-v2/node_modules/bunsen'
 alias gopan='cd ~/projects/my_pantry'
 alias goim='cd ~/projects/dibs-internal-inventory-management'
+alias gogr='cd ~/projects/dibs-graphql'
 govag () {
     godibs 
     vagrant ssh 
@@ -30,7 +31,8 @@ govag () {
 
 # GIT aliases
 alias gf='git fetch'
-alias gr='git pull --rebase'
+# alias gr='getbranch | xargs git pull --rebase upstream'
+alias gr='BRANCH=$(getbranch)  && git remote | grep upstream && { REMOTE="upstream"; } || { REMOTE="origin"; } && git pull --rebase $REMOTE $BRANCH'
 alias gru='getbranch | git pull --rebase upstream'
 alias gs='git status'
 alias ga='git add'
@@ -199,5 +201,10 @@ curltimer() {
 }
 
 ngrep() {
-    grep -r --exclude-dir node_modules $1 .
+    grep -ir --exclude-dir node_modules $1 .
 }
+
+alias dockerrm='docker ps -aq | xargs docker rm '
+alias dockerrmi='docker images -aq | xargs docker rmi'
+alias screendocker='screen /Users/ronald/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
+

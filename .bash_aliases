@@ -201,7 +201,7 @@ curltimer() {
 }
 
 ngrep() {
-    grep -ir --exclude-dir node_modules --exclude-dir .idea --exclude-dir .git $1 . | grep -v __snapshots__
+    grep -ir $1 . --exclude-dir={node_modules,.idea,.git,*compiled} | grep -v __snapshots__
 }
 
 alias dockerrm='docker ps -aq | xargs docker rm '

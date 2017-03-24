@@ -14,8 +14,8 @@ alias physmem='top -l 1 -s 0 | grep PhysMem'
 
 # mega list command:
 alias ls='ls -G'
-alias ll='ls -l'
-alias la='ls -la'
+alias ll='ls -lh'
+alias la='ls -lah'
 
 alias godibs='cd ~/projects/1stdibs.com'
 alias gov2='cd ~/projects/1stdibs-admin-v2'

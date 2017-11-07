@@ -37,6 +37,9 @@ export GOPATH=~/gocode
 export PYTHONPATH=/usr/local/Cellar/pygtk/2.24.0
 export SELENIUM_JAR=/usr/local/bin/selenium-server-standalone.jar
 export PATH="/usr/local/sbin:$PATH" # adding sbin to PATH for brew
+export PATH="$HOME/.jenv/bin:$PATH" # add jenv to PATH
+
+eval "$(jenv init -)" 
 
 # Set up terminal colors : 
 function parse_git_branch () {
@@ -51,3 +54,7 @@ YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
 NO_COLOUR="\[\033[0m\]"
 PS1="$GREEN\u$RED:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

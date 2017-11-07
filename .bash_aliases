@@ -4,6 +4,8 @@ alias locate_db="sudo launchctl load -w /system/library/launchdaemons/com.apple.
 alias show_hidden='defaults write com.apple.Finder AppleShowAllFiles YES && killall Finder && open /System/Library/CoreServices/Finder.app'
 alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder'
 
+alias weather='curl wttr.in/new_york'
+
 alias flushdns='sudo killall -HUP mDNSResponder'
 
 alias lock="open -a /System/Library/Frameworks/ScreenSaver.framework//Versions/A/Resources/ScreenSaverEngine.app" 
@@ -11,6 +13,8 @@ alias lock="open -a /System/Library/Frameworks/ScreenSaver.framework//Versions/A
 alias size='du -sh'
 
 alias physmem='top -l 1 -s 0 | grep PhysMem'
+
+alias mgmobile='cd ~/projects/mecha-godzilla && mg -t @mobile-browse --config ./testConfigFiles/.localConfigrc -s local.intranet'
 
 # mega list command:
 alias ls='ls -G'
@@ -23,8 +27,10 @@ alias gov1='cd ~/projects/1stdibs-admin-v1'
 alias gobunsen='cd ~/projects/1stdibs-admin-v2/node_modules/bunsen'
 alias gopan='cd ~/projects/my_pantry'
 alias goim='cd ~/projects/dibs-internal-inventory-management'
-alias goab='cd ~/projects/app-buyer-mobile'
+alias goaf='cd ~/projects/app-buyer-finding'
 alias gogr='cd ~/projects/dibs-graphql'
+alias goqb='cd ~/projects/dibs-query-builder'
+alias gomg='cd ~/projects/mecha-godzilla'
 govag () {
     godibs 
     vagrant ssh 
@@ -208,4 +214,7 @@ ngrep() {
 alias dockerrm='docker ps -aq | xargs docker rm '
 alias dockerrmi='docker images -aq | xargs docker rmi'
 alias screendocker='screen /Users/ronald/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
+
+alias buildquery='pbpaste | xargs node -e "console.log(encodeURIComponent(process.argv[1]))" | xargs -I {} curl "http://local.intranet.1stdibs.com/soa/query-builder/create/search/?path={}" | jq '.''
+alias buildqs='pbpaste | xargs node -e "console.log(encodeURIComponent(process.argv[1]))" | xargs -I {} curl "http://local.intranet.1stdibs.com/soa/query-builder/create/search/?path={}&" | jq '.''
 

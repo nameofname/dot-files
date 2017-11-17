@@ -130,18 +130,19 @@ function x () {
 alias txt='pbpaste | pbcopy'
 
 function _print() {
-    echo "$1" | tr -d ' |\n' | pbcopy
-    pbpaste
+    echo "$1" | tr -d ' |\n'
     printf '\n'
 }
 
 function getip () {
     res=$(ifconfig en0 | grep inet | grep -v inet6 | awk '{print $2}')
+    echo $res | tr -d '\n' | pbcopy
     _print $res
 }
 
 getbranch () {
     res=$(git rev-parse --abbrev-ref HEAD)
+    echo $res | tr -d '\n' | pbcopy
     _print $res
 }
 
@@ -208,7 +209,7 @@ curltimer() {
 }
 
 ngrep() {
-    grep -ir $1 . --exclude-dir={node_modules,.idea,.git,*compiled} | grep -v __snapshots__
+    grep -ir $1 . --exclude-dir={node_modules,.idea,.git,*compiled} | grep -v "__snapshots__\|__generated__"
 }
 
 alias dockerrm='docker ps -aq | xargs docker rm '

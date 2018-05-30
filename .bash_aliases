@@ -50,7 +50,7 @@ alias gdc='git diff --cached'
 alias gdcs='git diff --cached --stat'
 alias gl='git log -n5'
 
-fixprettier='git diff HEAD --name-only | xargs -I {} yarn prettier --write {}'
+alias fixprettier='git diff HEAD --name-only | xargs -I {} yarn prettier --write {}'
 
 # Set up terminal colors : 
 function parse_git_branch () {

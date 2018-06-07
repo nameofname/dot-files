@@ -221,3 +221,6 @@ alias screendocker='screen /Users/ronald/Library/Containers/com.docker.docker/Da
 alias buildquery='pbpaste | xargs node -e "console.log(encodeURIComponent(process.argv[1]))" | xargs -I {} curl "http://local.intranet.1stdibs.com/soa/query-builder/create/search/?path={}" | jq '.''
 alias buildqs='pbpaste | xargs node -e "console.log(encodeURIComponent(process.argv[1]))" | xargs -I {} curl "http://local.intranet.1stdibs.com/soa/query-builder/create/search/?path={}&" | jq '.''
 
+pidFromPort() {
+    lsof -nP -i4TCP:$1 | grep LISTEN
+}

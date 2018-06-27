@@ -58,3 +58,4 @@ PS1="$GREEN\u$RED:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # works for home lap-top - does it work for work lap top as well ? 
+export PATH="/usr/local/opt/php@5.6/bin:$PATH"

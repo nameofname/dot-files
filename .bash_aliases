@@ -31,6 +31,7 @@ alias goaf='cd ~/projects/app-buyer-finding'
 alias gogr='cd ~/projects/dibs-graphql'
 alias goqb='cd ~/projects/dibs-query-builder'
 alias gomg='cd ~/projects/mecha-godzilla'
+alias godbl='cd ~/projects/dibs-buyer-layout'
 govag () {
     godibs 
     vagrant ssh 

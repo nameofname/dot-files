@@ -29,9 +29,9 @@ alias gopan='cd ~/projects/my_pantry'
 alias goim='cd ~/projects/dibs-internal-inventory-management'
 alias goaf='cd ~/projects/app-buyer-finding'
 alias gogr='cd ~/projects/dibs-graphql'
+alias godbl='cd ~/projects/dibs-buyer-layout'
 alias goqb='cd ~/projects/dibs-query-builder'
 alias gomg='cd ~/projects/mecha-godzilla'
-alias godbl='cd ~/projects/dibs-buyer-layout'
 govag () {
     godibs 
     vagrant ssh 
@@ -218,6 +218,7 @@ ngrep() {
 alias dockerrm='docker ps -aq | xargs docker rm '
 alias dockerrmi='docker images -aq | xargs docker rmi'
 alias screendocker='screen /Users/ronald/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
+alias dockersh='docker exec -it dibs-php /bin/sh'
 
 alias buildquery='pbpaste | xargs node -e "console.log(encodeURIComponent(process.argv[1]))" | xargs -I {} curl "http://local.intranet.1stdibs.com/soa/query-builder/create/search/?path={}" | jq '.''
 alias buildqs='pbpaste | xargs node -e "console.log(encodeURIComponent(process.argv[1]))" | xargs -I {} curl "http://local.intranet.1stdibs.com/soa/query-builder/create/search/?path={}&" | jq '.''

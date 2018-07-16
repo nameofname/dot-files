@@ -220,8 +220,13 @@ alias dockerrmi='docker images -aq | xargs docker rmi'
 alias screendocker='screen /Users/ronald/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
 alias dockersh='docker exec -it dibs-php /bin/sh'
 
-alias buildquery='pbpaste | xargs node -e "console.log(encodeURIComponent(process.argv[1]))" | xargs -I {} curl "http://local.intranet.1stdibs.com/soa/query-builder/create/search/?path={}" | jq '.''
-alias buildqs='pbpaste | xargs node -e "console.log(encodeURIComponent(process.argv[1]))" | xargs -I {} curl "http://local.intranet.1stdibs.com/soa/query-builder/create/search/?path={}&" | jq '.''
+alias buildquery='pbpaste | xargs node -e "console.log(encodeURIComponent(process.argv[1]))" | xargs -I {} curl "https://www.1stdibs.com/soa/query-builder/1/search?uriRef={}" | jq '.''
+
+flushdbl() {
+    ENV=$1
+    URL="https://$ENV.1stdibs.com/evict/buyer-layout/"
+    echo "curling... $URL" && curl $URL
+}
 
 pidFromPort() {
     lsof -nP -i4TCP:$1 | grep LISTEN

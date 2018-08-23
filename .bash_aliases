@@ -39,9 +39,19 @@ govag () {
 
 # GIT aliases
 alias gf='git fetch'
-# alias gr='getbranch | xargs git pull --rebase upstream'
-alias gr='BRANCH=$(getbranch)  && git remote | grep upstream && { REMOTE="upstream"; } || { REMOTE="origin"; } && git pull --rebase $REMOTE $BRANCH'
-alias gru='getbranch | git pull --rebase upstream'
+# alias gr='BRANCH=$(branch)  && git remote | grep upstream && { REMOTE="upstream"; } || { REMOTE="origin"; } && git pull --rebase $REMOTE $BRANCH'
+#alias gr='BRANCH=$(branch)  && git branch -r | grep $BRANCH | grep upstream && { REMOTE="upstream"; } || { REMOTE="origin"; } && git pull --rebase $REMOTE $BRANCH'
+gr() {
+    BRANCH=$(branch);
+    HAY=$(git branch -r);
+    if [[ $HAY = *"upstream/$BRANCH"* ]]; then
+        REMOTE='upstream'; else
+        REMOTE='origin';
+    fi
+    echo "pulling from $REMOTE $BRANCH";
+    git pull --rebase $REMOTE $BRANCH;
+}
+alias gru='branch | git pull --rebase upstream'
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit'
@@ -143,9 +153,14 @@ function getip () {
     _print $res
 }
 
-getbranch () {
+branch () {
     res=$(git rev-parse --abbrev-ref HEAD)
-    echo $res | tr -d '\n' | pbcopy
+    echo $res | tr -d '\n' 
+}
+
+getbranch () {
+    res=$(branch)
+    echo $res | pbcopy
     _print $res
 }
 
@@ -196,7 +211,7 @@ tarsomething() {
 }
 
 gpo() {
-    branch=$(getbranch)
+    branch=$(branch)
     git push origin $branch
 }
 

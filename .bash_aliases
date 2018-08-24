@@ -60,6 +60,7 @@ alias gds='git diff --stat'
 alias gdc='git diff --cached'
 alias gdcs='git diff --cached --stat'
 alias gl='git log -n5'
+alias remotebranch='git branch -r'
 
 alias fixprettier='git diff HEAD --name-only | xargs -I {} yarn prettier --write {}'
 

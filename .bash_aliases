@@ -240,7 +240,7 @@ alias buildquery='pbpaste | xargs node -e "console.log(encodeURIComponent(proces
 
 flushdbl() {
     ENV=$1
-    URL="https://$ENV.1stdibs.com/evict/buyer-layout/"
+    URL="https://$ENV.1stdibs.com/fe-memcached/evict/buyer-layout/"
     echo "curling... $URL" && curl $URL
 }
 

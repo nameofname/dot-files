@@ -37,9 +37,8 @@ export GOPATH=~/gocode
 export PYTHONPATH=/usr/local/Cellar/pygtk/2.24.0
 export SELENIUM_JAR=/usr/local/bin/selenium-server-standalone.jar
 export PATH="/usr/local/sbin:$PATH" # adding sbin to PATH for brew
-export PATH="$HOME/.jenv/bin:$PATH" # add jenv to PATH
-
-eval "$(jenv init -)" 
+#export PATH="$HOME/.jenv/bin:$PATH" # add jenv to PATH
+#eval "$(jenv init -)" 
 
 # Set up terminal colors : 
 function parse_git_branch () {

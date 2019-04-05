@@ -211,6 +211,19 @@ function flushdbl() {
     echo "curling... $URL" && curl $URL
 }
 
-function pidFromPort() {
+function pidfromport() {
     lsof -nP -i4TCP:$1 | grep LISTEN
+}
+
+function getimgs() {
+    FILES=$(~/projects/random-scripts/bash/getImages.js $1);
+    EXIT_CODE=$?;
+
+    if [[ $EXIT_CODE != 0 ]]
+        then 
+            echo "[ getimgs ] Get Images command failed with exit code $EXIT_CODE";
+            echo $FILES;
+        else 
+            echo $FILES | xargs wget -P ./image-downloads;
+    fi
 }

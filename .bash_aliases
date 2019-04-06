@@ -54,6 +54,7 @@ alias gogr='cd ~/projects/dibs-graphql'
 alias godbl='cd ~/projects/dibs-buyer-layout'
 alias goqb='cd ~/projects/dibs-query-builder'
 alias gomg='cd ~/projects/mecha-godzilla'
+alias gocloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/'
 
 # GIT aliases
 alias gf='git fetch'

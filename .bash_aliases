@@ -228,3 +228,18 @@ function getimgs() {
             echo $FILES | xargs wget -P ./image-downloads;
     fi
 }
+
+# eg. makegif 500 ./*.jpg where 500 = resize value (max w/h)
+function makegif() {
+    size=$1
+    shift
+    files=$@
+    mkdir tmp
+    cp $files ./tmp/
+    cd tmp
+    sips -Z $size $files 
+    convert -delay 35 -loop 0 $files animated.gif
+    mv animated.gif ../
+    cd ../
+    rm -r tmp
+}

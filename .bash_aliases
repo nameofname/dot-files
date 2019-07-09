@@ -43,16 +43,10 @@ alias ll='ls -lh'
 alias la='ls -lah'
 
 # stored locations
-alias godibs='cd ~/projects/1stdibs.com'
-alias gov2='cd ~/projects/1stdibs-admin-v2'
-alias gov1='cd ~/projects/1stdibs-admin-v1'
-alias gobunsen='cd ~/projects/1stdibs-admin-v2/node_modules/bunsen'
 alias gopan='cd ~/projects/my_pantry'
-alias goim='cd ~/projects/dibs-internal-inventory-management'
-alias goaf='cd ~/projects/app-buyer-finding'
 alias gogr='cd ~/projects/dibs-graphql'
-alias godbl='cd ~/projects/dibs-buyer-layout'
 alias goqb='cd ~/projects/dibs-query-builder'
+alias gofe='cd ~/projects/ferrum'
 alias gomg='cd ~/projects/mecha-godzilla'
 alias gocloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/'
 

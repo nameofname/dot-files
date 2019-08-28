@@ -47,6 +47,8 @@ alias gopan='cd ~/projects/my_pantry'
 alias gogr='cd ~/projects/dibs-graphql'
 alias goqb='cd ~/projects/dibs-query-builder'
 alias gofe='cd ~/projects/ferrum'
+alias goaf='cd ~/projects/ferrum/apps/app-buyer-finding'
+alias godbl='cd ~/projects/ferrum/packages/dibs-buyer-layout'
 alias gomg='cd ~/projects/mecha-godzilla'
 alias gocloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/'
 

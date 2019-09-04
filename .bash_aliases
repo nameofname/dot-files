@@ -50,6 +50,7 @@ alias gofe='cd ~/projects/ferrum'
 alias goaf='cd ~/projects/ferrum/apps/app-buyer-finding'
 alias godbl='cd ~/projects/ferrum/packages/dibs-buyer-layout'
 alias gomg='cd ~/projects/mecha-godzilla'
+alias gov2='cd ~/projects/1stdibs-admin-v2'
 alias gocloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/'
 
 # GIT aliases

@@ -55,7 +55,6 @@ alias gocloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/'
 
 # GIT aliases
 alias gf='git fetch'
-alias gru='branch | git pull --rebase upstream'
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit'
@@ -64,21 +63,30 @@ alias gds='git diff --stat'
 alias gdc='git diff --cached'
 alias gdcs='git diff --cached --stat'
 alias gl='git log -n5'
+function gb() {
+    read -rd '' b <<< "$1"
+    git checkout -b nameofname/$b
+}
 
 gpo() {
     branch=$(branch)
-    git push origin $branch
+    if [[ $branch == nameofname/* ]]
+    then
+        git push origin $branch
+    else 
+        echo "Invalid branch name $branch"
+    fi
 }
 
 function gr() {
     BRANCH=$(branch);
-    HAY=$(git branch -r);
-    if [[ $HAY = *"upstream/$BRANCH"* ]]; then
-        REMOTE='upstream'; else
-        REMOTE='origin';
-    fi
-    echo "pulling from $REMOTE $BRANCH";
-    git pull --rebase $REMOTE $BRANCH;
+    # HAY=$(git branch -r);
+    # if [[ $HAY = *"upstream/$BRANCH"* ]]; then
+    #     REMOTE='upstream'; else
+    #     REMOTE='origin';
+    # fi
+    # echo "pulling from $REMOTE $BRANCH";
+    git pull --rebase origin $BRANCH;
 }
 
 # Set up terminal colors : 

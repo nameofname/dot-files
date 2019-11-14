@@ -70,12 +70,12 @@ function gb() {
 
 gpo() {
     branch=$(branch)
-    if [[ $branch == nameofname/* ]]
-    then
-        git push origin $branch
-    else 
-        echo "Invalid branch name $branch"
-    fi
+    evalString="\
+        const input = '$branch';
+        const res = ['develop', 'master', 'release'].includes(input) || input.slice(0, 11) === 'nameofname/';
+        if (res) { process.exit(0); }
+        else { console.log('Invalid branch name $branch'); process.exit(1); }"
+    node -e "$evalString" && git push origin $branch
 }
 
 function gr() {

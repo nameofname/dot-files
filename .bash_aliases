@@ -237,13 +237,14 @@ function getimgs() {
 # eg. makegif 500 ./*.jpg where 500 = resize value (max w/h)
 function makegif() {
     size=$1
+    delay=$2
     shift
     files=$@
     mkdir tmp
     cp $files ./tmp/
     cd tmp
     sips -Z $size $files 
-    convert -delay 35 -loop 0 $files animated.gif
+    convert -delay $delay -loop 0 $files animated.gif
     mv animated.gif ../
     cd ../
     rm -r tmp

@@ -68,6 +68,11 @@ function gb() {
     git checkout -b nameofname/$b
 }
 
+function gco() {
+    branch=$(node -e "const arg = process.argv[1]; console.log(arg.slice(0, 10) === 'nameofname' ? arg : \`nameofname/\${arg}\`)" $1)
+    git checkout $branch
+}
+
 gpo() {
     branch=$(branch)
     evalString="\

@@ -37,6 +37,8 @@ alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles -boolean fa
 alias download-img="wget -r -P ./download -A jpeg,jpg,bmp,gif,png"
 alias download-all="wget -r -P ./download -A jpeg,jpg,bmp,gif,png,css,js"
 
+alias vpnpw='echo $VPN_PW | tr -d "\n" | pbcopy'
+
 # mega list command:
 alias ls='ls -G'
 alias ll='ls -lh'
@@ -237,6 +239,13 @@ function getimgs() {
         else 
             echo $FILES | xargs wget -P ./image-downloads;
     fi
+}
+
+# filterSize +80k | xargs -I {} echo {}
+# file size indicators are are k M G T P and you can use + or - (ie - 1G)
+function filterSize() {
+    SIZE=$1
+    find . -size $SIZE 
 }
 
 # eg. makegif 500 ./*.jpg where 500 = resize value (max w/h)

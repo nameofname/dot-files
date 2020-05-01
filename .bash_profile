@@ -54,7 +54,7 @@ GREEN="\[\033[0;32m\]"
 NO_COLOUR="\[\033[0m\]"
 PS1="$GREEN\u$RED:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
 
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# works for home lap-top - does it work for work lap top as well ? 
-export PATH="/usr/local/opt/php@5.6/bin:$PATH"
+# Installation : brew install php@7.3
+export PATH="/usr/local/opt/php@7.3/bin:$PATH"
+export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
+export PATH="/usr/local/opt/awscli@1/bin:$PATH"

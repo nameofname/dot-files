@@ -36,9 +36,12 @@ set scrolloff=3
 :syntax on
 :set number
 
-" Treat .json files as .js
+" Treat .json, jsx, ts, tsx files as .js
 "autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 autocmd BufNewFile,BufRead *.json set ft=javascript
+autocmd BufNewFile,BufRead *.jsx set ft=javascript
+autocmd BufNewFile,BufRead *.ts set ft=javascript
+autocmd BufNewFile,BufRead *.tsx set ft=javascript
 
 " Mappings for tabs & FuzzyFinder
 map <C-J> :tabprevious<CR>

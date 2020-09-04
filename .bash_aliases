@@ -45,14 +45,13 @@ alias ll='ls -lh'
 alias la='ls -lah'
 
 # stored locations
-alias gopan='cd ~/projects/my_pantry'
+alias goenv='cd ~/projects/env-boot'
 alias gogr='cd ~/projects/dibs-graphql'
 alias goqb='cd ~/projects/dibs-query-builder'
 alias gofe='cd ~/projects/ferrum'
 alias goaf='cd ~/projects/ferrum/apps/app-buyer-finding'
 alias godbl='cd ~/projects/ferrum/packages/dibs-buyer-layout'
 alias gomg='cd ~/projects/mecha-godzilla'
-alias gov2='cd ~/projects/1stdibs-admin-v2'
 alias gocloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/'
 
 # GIT aliases
@@ -215,7 +214,7 @@ function curltimer() {
 }
 
 function ngrep() {
-    grep -ir $1 . --exclude-dir={node_modules,.idea,.git,*compiled} | grep -v "__snapshots__\|__generated__\|__fixtures__"
+    grep -ir $1 . --exclude-dir={node_modules,.idea,.git,*compiled,__snapshots__,__generated__,__fixtures__,.serverless}
 }
 
 function flushdbl() {

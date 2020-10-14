@@ -238,12 +238,15 @@ function filterSize() {
     find . -size $SIZE 
 }
 
-# eg. makegif 500 ./*.jpg where 500 = resize value (max w/h)
+# eg. makegif 500 50 ./*.jpg 
+# where 500 = resize value (max w/h)
+# 50 = delay time (in hundredths of a second ie. 100 = 1 second)
 function makegif() {
     size=$1
     delay=$2
-    shift
+    shift 2 # removes the first 2 arguments from $@ 
     files=$@
+    echo "creating gif with ... size = $size, delay = $delay, files = $files"
     mkdir tmp
     cp $files ./tmp/
     cd tmp

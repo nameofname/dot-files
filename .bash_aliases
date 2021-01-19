@@ -111,12 +111,6 @@ prettygit () {
 	fi
 }
 
-# utility for this file
-function _print() {
-    echo "$1" | tr -d ' |\n'
-    printf '\n'
-}
-
 # Opens a new tab... sweet!
 function tab() {
   osascript 2>/dev/null <<EOF
@@ -156,19 +150,20 @@ function x () {
 
 function getip () {
     res=$(ifconfig en0 | grep inet | grep -v inet6 | awk '{print $2}')
-    echo $res | tr -d '\n' | pbcopy
-    _print $res
+    printf $res | pbcopy
+    echo $res
 }
 
 function branch () {
     res=$(git rev-parse --abbrev-ref HEAD)
-    echo $res | tr -d '\n' 
+    printf $res
 }
 
+# Note the usage of printf and echo - printf doesn't output a newline character
 function getbranch () {
     res=$(branch)
-    echo $res | pbcopy
-    _print $res
+    printf $res | pbcopy
+    echo $res
 }
 
 function parse_git_branch () {

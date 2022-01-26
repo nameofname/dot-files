@@ -209,7 +209,7 @@ function curltimer() {
 }
 
 function ngrep() {
-    grep -ir $1 . --exclude-dir={node_modules,.idea,.git,*compiled,__snapshots__,__generated__,__fixtures__,.serverless}
+    grep -ir "$1" . --exclude-dir={node_modules,.idea,.git,*compiled,__snapshots__,__generated__,__fixtures__,.serverless,.yarn,.vscode}
 }
 
 function flushdbl() {

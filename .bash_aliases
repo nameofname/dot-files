@@ -53,6 +53,7 @@ alias goaf='cd ~/projects/ferrum/apps/app-buyer-finding'
 alias godbl='cd ~/projects/ferrum/packages/dibs-buyer-layout'
 alias gomg='cd ~/projects/mecha-godzilla'
 alias gocloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/'
+alias gorand='cd ~/projects/random-scripts/js/'
 
 # GIT aliases
 alias gf='git fetch'
@@ -223,7 +224,7 @@ function pidfromport() {
 }
 
 function getimgs() {
-    ~/projects/random-scripts/bash/getImages.js $1;
+    ~/projects/random-scripts/bash/getImages.js $@;
 }
 
 # filterSize +80k | xargs -I {} echo {}

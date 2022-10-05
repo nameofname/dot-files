@@ -99,7 +99,7 @@ function gr() {
 # function parse_git_branch () {
     # this is my version which also works
     # git branch | grep "*" | tr -d "* "
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+    # git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 # }
 
 prettygit () {

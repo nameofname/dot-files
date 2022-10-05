@@ -63,7 +63,7 @@ filetype on
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
-  colorscheme brookstream
+  colorscheme industry
   endif
 
 " Mappings for copy paste.  Thanks to - http://vim.wikia.com/wiki/Mac_OS_X_clipboard_sharing

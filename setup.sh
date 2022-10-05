@@ -31,4 +31,5 @@ if [ -f ~/.vimrc ]
 fi
 
 # sym-link the bash profile into place and source it. it will move the other files into place and source them
-ln -s "${DOT_FILES_DIR}/.bash_profile" ~/
+# note, this is janky, since I started using zsh over bash I'm simply renaming the symlink
+ln -s "${DOT_FILES_DIR}/.zshenv ~/

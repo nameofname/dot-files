@@ -1,4 +1,4 @@
-export DOT_FILES_DIR=/Users/ronald/projects/dot-files
+export DOT_FILES_DIR=/Users/nameof/github/dot-files
 
 # Import functions and aliases created in ~/.bash_alises file
 if [ -f ~/.bash_aliases ]

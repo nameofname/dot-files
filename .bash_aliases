@@ -74,7 +74,7 @@ function gco() {
     git checkout $branch
 }
 
-gpo() {
+function gpo() {
     branch=$(branch)
     evalString="\
         const input = '$branch';

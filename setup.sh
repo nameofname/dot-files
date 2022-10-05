@@ -32,4 +32,4 @@ fi
 
 # sym-link the bash profile into place and source it. it will move the other files into place and source them
 # note, this is janky, since I started using zsh over bash I'm simply renaming the symlink
-ln -s "${DOT_FILES_DIR}/.zshenv ~/
+ln -s "${DOT_FILES_DIR}/.zshrc ~/

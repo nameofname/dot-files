@@ -96,12 +96,12 @@ function gr() {
     git pull --rebase origin $BRANCH;
 }
 
-# Set up terminal colors : 
-function parse_git_branch () {
+# This function moved into .bash_provile to set up terminal colors : 
+# function parse_git_branch () {
     # this is my version which also works
     # git branch | grep "*" | tr -d "* "
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
+    # git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+# }
 
 prettygit () {
 	if [ -z "$1" ] 
@@ -165,10 +165,6 @@ function getbranch () {
     res=$(branch)
     printf $res | pbcopy
     echo $res
-}
-
-function parse_git_branch () {
-       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 # Eval a command line input and console log the output in Node.js. 

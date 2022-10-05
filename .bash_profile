@@ -37,31 +37,29 @@ export GOPATH=~/gocode
 export PYTHONPATH=/usr/local/Cellar/pygtk/2.24.0
 export SELENIUM_JAR=/usr/local/bin/selenium-server-standalone.jar
 export PATH="/usr/local/sbin:$PATH" # adding sbin to PATH for brew
-#export PATH="$HOME/.jenv/bin:$PATH" # add jenv to PATH
-#eval "$(jenv init -)" 
 
 # Set up terminal colors : 
-function parse_git_branch () {
-       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+function parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/' | xargs
 }
 
 export LSCOLORS=cxFxCxDxBxexexaxaxaxex
 export CLICOLOR=1
 
-RED="\[\033[0;31m\]"
-YELLOW="\[\033[0;33m\]"
-GREEN="\[\033[0;32m\]"
-NO_COLOUR="\[\033[0m\]"
-PS1="$GREEN\u$RED:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
+# Old colors for bash : 
+# RED="\[\033[0;31m\]"
+# YELLOW="\[\033[0;33m\]"
+# GREEN="\[\033[0;32m\]"
+# NO_COLOUR="\[\033[0m\]"
+# PS1="$GREEN\u$RED:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
+setopt prompt_subst
+PS1='%F{yellow}%n %F{green}%1~ %F{red}$(parse_git_branch) %f# '
 
 # Installation : brew install php@7.3
-export PATH="/usr/local/opt/php@7.3/bin:$PATH"
-export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
-export PATH="/usr/local/opt/awscli@1/bin:$PATH"
+# export PATH="/usr/local/opt/php@7.3/bin:$PATH"
+# export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
+# export PATH="/usr/local/opt/awscli@1/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Added by serverless binary installer
-export PATH="$HOME/.serverless/bin:$PATH"

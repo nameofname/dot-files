@@ -53,7 +53,7 @@ export CLICOLOR=1
 # NO_COLOUR="\[\033[0m\]"
 # PS1="$GREEN\u$RED:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
 setopt prompt_subst
-PS1='%F{yellow}%n %F{green}%1~ %F{red}$(parse_git_branch) %f# '
+export PROMPT='%F{yellow}%n %F{green}%~ %F{red}$(parse_git_branch) %f# '
 
 # Installation : brew install php@7.3
 # export PATH="/usr/local/opt/php@7.3/bin:$PATH"

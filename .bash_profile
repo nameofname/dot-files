@@ -25,18 +25,14 @@ if [ -f ~/.secret_keys ]
         source ~/.secret_keys
 fi
 
+# use amazon specific code
+if [ -f ~/.amazon_profile ]
+    then
+        source ~/.amazon_profile
+fi
 
 # Fix for Node.js EMFILE error :
 ulimit -S -n 2048
-
-# export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home
-export CATALINA_HOME=/usr/local/Cellar/tomcat/7.0.29/libexec
-export NODE_PATH=/usr/local/lib/node_modules/
-export GOPATH=~/gocode
-export PYTHONPATH=/usr/local/Cellar/pygtk/2.24.0
-export SELENIUM_JAR=/usr/local/bin/selenium-server-standalone.jar
-export PATH="/usr/local/sbin:$PATH" # adding sbin to PATH for brew
 
 # Set up terminal colors : 
 function parse_git_branch() {
@@ -55,11 +51,14 @@ export CLICOLOR=1
 setopt prompt_subst
 export PROMPT='%F{yellow}%n %F{green}%~ %F{red}$(parse_git_branch) %f# '
 
-# Installation : brew install php@7.3
-# export PATH="/usr/local/opt/php@7.3/bin:$PATH"
-# export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
-# export PATH="/usr/local/opt/awscli@1/bin:$PATH"
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Modifications to PATH :
+export NODE_PATH=/usr/local/lib/node_modules/
+export PATH="/usr/local/sbin:$PATH" # adding sbin to PATH for brew
+export PATH="$PATH:$HOME/.toolbox/bin"
+
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"

@@ -65,6 +65,7 @@ alias gds='git diff --stat'
 alias gdc='git diff --cached'
 alias gdcs='git diff --cached --stat'
 alias gl='git log -n5'
+
 function gb() {
     read -rd '' b <<< "$1"
     git checkout -b nameofname/$b
@@ -207,6 +208,10 @@ function curltimer() {
 
 function ngrep() {
     grep -ir "$1" . --exclude-dir={node_modules,.idea,.git,compiled,__snapshots__,__generated__,__fixtures__,.serverless,.yarn,.vscode}
+}
+
+function sgrep() {
+    find . -name src -type d | xargs -I {} grep -r "$1" {}
 }
 
 function flushdbl() {

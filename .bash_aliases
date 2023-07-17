@@ -207,11 +207,11 @@ function curltimer() {
 }
 
 function ngrep() {
-    grep -ir "$1" . --exclude-dir={node_modules,.idea,.git,compiled,__snapshots__,__generated__,__fixtures__,.serverless,.yarn,.vscode}
+    grep -ir "$1" . --exclude-dir={node_modules,.idea,.git,compiled,__snapshots__,__generated__,__fixtures__,.serverless,.yarn,.vscode,.next}
 }
 
 function sgrep() {
-    find . -name src -type d | xargs -I {} grep -r "$1" {}
+    find . -name src -type d | xargs -I {} grep -ir "$1" {} --exclude-dir=tst
 }
 
 function flushdbl() {
@@ -226,6 +226,10 @@ function pidfromport() {
 
 function getimgs() {
     ~/projects/random-scripts/bash/getImages.js $@;
+}
+
+function serve() {
+    ~/projects/random-scripts/js/static-server/static.js $@;
 }
 
 # filterSize +80k | xargs -I {} echo {}
@@ -253,3 +257,4 @@ function makegif() {
     cd ../
     rm -r tmp
 }
+

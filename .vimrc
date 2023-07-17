@@ -1,3 +1,4 @@
+
 " THE FOLLOWING WERE TAKEN FROM- https://github.com/mathiasbynens/dotfiles/blob/master/.vimrc
 " Make Vim more useful
 set nocompatible

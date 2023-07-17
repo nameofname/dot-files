@@ -1,4 +1,4 @@
-export DOT_FILES_DIR=/Users/nameof/github/dot-files
+export DOT_FILES_DIR=/Users/nameof/projects/dot-files
 
 # Import functions and aliases created in ~/.bash_alises file
 if [ -f ~/.bash_aliases ]
@@ -12,12 +12,17 @@ if [ -f ~/.vimrc ]
 fi
 ln -s "${DOT_FILES_DIR}/.vimrc" ~/
 
-# Use git tab completion.
-if [ -f ~/git-completion.sh ]
-    then rm ~/git-completion.sh;
-fi
-ln -s "${DOT_FILES_DIR}/git-completion.sh" ~/
-. ~/git-completion.sh
+# OLD busted ass outdated git completion for bash
+## Use git tab completion.
+#if [ -f ~/git-completion.sh ]
+#    then rm ~/git-completion.sh;
+#fi
+#ln -s "${DOT_FILES_DIR}/git-completion.sh" ~/
+#. ~/git-completion.sh
+
+# Updated git completion for zsh
+zstyle ':completion:*:*:git:*' script ~/git-completion.bash
+fpath=(~/.zsh $fpath)
 
 # use secret keys file :
 if [ -f ~/.secret_keys ]
@@ -55,6 +60,13 @@ export PROMPT='%F{yellow}%n %F{green}%~ %F{red}$(parse_git_branch) %f# '
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home"
+
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Python support : 
+pyenv global 2.7.18
+
 # nvm support :
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -64,6 +76,8 @@ export NVM_DIR="$HOME/.nvm"
 export NODE_PATH=/usr/local/lib/node_modules/
 export PATH="/usr/local/sbin:$PATH" # adding sbin to PATH for brew
 export PATH="$PATH:$HOME/.toolbox/bin"
-
-# Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
+PATH=$(pyenv root)/shims:$PATH # python globally available
+#export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH" # openssl for brew
+#export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
+#export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
+#export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"

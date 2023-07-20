@@ -80,7 +80,7 @@ function gpo() {
     branch=$(branch)
     evalString="\
         const input = '$branch';
-        const res = ['develop', 'master', 'release'].includes(input) || input.slice(0, 11) === 'nameofname/';
+        const res = ['develop', 'master', 'release', 'mainline'].includes(input) || input.slice(0, 11) === 'nameofname/';
         if (res) { process.exit(0); }
         else { console.log('Invalid branch name $branch'); process.exit(1); }"
     node -e "$evalString" && git push origin $branch

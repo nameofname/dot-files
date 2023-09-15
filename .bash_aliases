@@ -41,8 +41,8 @@ alias vpnpw='echo $VPN_PW | tr -d "\n" | pbcopy'
 
 # mega list command:
 alias ls='ls -G'
-alias ll='ls -lh'
-alias la='ls -lah'
+alias ll='ls -lhi'
+alias la='ls -lahi'
 
 # stored locations
 alias goenv='cd ~/projects/env-boot'
@@ -80,7 +80,7 @@ function gpo() {
     branch=$(branch)
     evalString="\
         const input = '$branch';
-        const res = ['develop', 'master', 'release', 'mainline'].includes(input) || input.slice(0, 11) === 'nameofname/';
+        const res = ['develop', 'master', 'release'].includes(input) || input.slice(0, 11) === 'nameofname/';
         if (res) { process.exit(0); }
         else { console.log('Invalid branch name $branch'); process.exit(1); }"
     node -e "$evalString" && git push origin $branch
@@ -226,10 +226,6 @@ function pidfromport() {
 
 function getimgs() {
     ~/projects/random-scripts/bash/getImages.js $@;
-}
-
-function serve() {
-    ~/projects/random-scripts/js/static-server/static.js $@;
 }
 
 # filterSize +80k | xargs -I {} echo {}

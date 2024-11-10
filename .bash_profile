@@ -65,12 +65,15 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Conten
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Python support : 
-pyenv global 2.7.18
+# This was messing up use of venv for me so I disabled for now
+# pyenv global 2.7.18
 
 # nvm support :
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# commented out NVM support to try out mise :
+eval "$(mise activate zsh)"
 
 # Modifications to PATH :
 export NODE_PATH=/usr/local/lib/node_modules/
@@ -81,3 +84,6 @@ PATH=$(pyenv root)/shims:$PATH # python globally available
 #export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
 #export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
 #export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
+
+# Created by `pipx` on 2024-11-08 20:41:43
+export PATH="$PATH:/Users/nameof/.local/bin"

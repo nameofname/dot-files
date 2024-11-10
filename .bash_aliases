@@ -221,7 +221,8 @@ function flushdbl() {
 }
 
 function pidfromport() {
-    lsof -nP -i4TCP:$1 | grep LISTEN
+    # lsof -nP -i4TCP:$1 | grep LISTEN
+    lsof -n -i :$1 | grep LISTEN 
 }
 
 function getimgs() {

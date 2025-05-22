@@ -80,7 +80,7 @@ function gpo() {
     branch=$(branch)
     evalString="\
         const input = '$branch';
-        const res = ['develop', 'master', 'release'].includes(input) || input.slice(0, 11) === 'nameofname/';
+        const res = ['develop', 'master', 'main', 'release'].includes(input) || input.slice(0, 11) === 'nameofname/';
         if (res) { process.exit(0); }
         else { console.log('Invalid branch name $branch'); process.exit(1); }"
     node -e "$evalString" && git push origin $branch
@@ -206,12 +206,21 @@ function curltimer() {
     curl -w "time_namelookup:  %{time_namelookup} \ntime_connect:  %{time_connect} \ntime_appconnect:  %{time_appconnect} \ntime_pretransfer:  %{time_pretransfer} \ntime_redirect:  %{time_redirect} \ntime_starttransfer:  %{time_starttransfer} \n---------- \ntime_total:  %{time_total}\n" -o /dev/null -s $url
 }
 
+# Recursive grep with list of common exclusions
 function ngrep() {
-    grep -ir "$1" . --exclude-dir={node_modules,.idea,.git,compiled,__snapshots__,__generated__,__fixtures__,.serverless,.yarn,.vscode,.next}
+    grep -inr "$1" . --exclude-dir={node_modules,.idea,.git,compiled,__snapshots__,__generated__,__fixtures__,.serverless,.yarn,.vscode,.next,build,dist,tst,test,__tests__}
 }
 
+# Like ngrep but specify only javascript and typescript files
+function jgrep() {
+    grep -inr "$1" . '--include=*.'{js,ts,jsx,tsx} --exclude-dir={node_modules,.idea,.git,compiled,__snapshots__,__generated__,__fixtures__,.serverless,.yarn,.vscode,.next,build,dist,tst,test,__tests__}
+}
+
+# Grep over only files in directories called src... this is supposed to be doable with --include-dir, but not owrking for me.
 function sgrep() {
-    find . -name src -type d | xargs -I {} grep -ir "$1" {} --exclude-dir=tst
+    find . -name src -type d | xargs -I {} grep -inr "$1" {} --exclude-dir={tst,test,__tests__}
+    # Why this no work?!
+    # grep -inr "$1" . --include-dir src --exclude-dir={tst,test,__tests__}
 }
 
 function flushdbl() {

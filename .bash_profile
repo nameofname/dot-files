@@ -1,16 +1,16 @@
-export DOT_FILES_DIR=/Users/nameof/projects/dot-files
+export DOT_FILES_DIR=/Users/ronald/projects/dot-files
 
 # Import functions and aliases created in ~/.bash_alises file
 if [ -f ~/.bash_aliases ]
     then rm ~/.bash_aliases
 fi
-ln -s "${DOT_FILES_DIR}/.bash_aliases" ~/
+ln -s "${DOT_FILES_DIR}/.bash_aliases" ~
 source ~/.bash_aliases
 
 if [ -f ~/.vimrc ]
     then rm ~/.vimrc
 fi
-ln -s "${DOT_FILES_DIR}/.vimrc" ~/
+ln -s "${DOT_FILES_DIR}/.vimrc" ~
 
 # OLD busted ass outdated git completion for bash
 ## Use git tab completion.
@@ -62,7 +62,7 @@ export PROMPT='%F{yellow}%n %F{green}%~ %F{red}$(parse_git_branch) %f# '
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home"
 
 # Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/usr/local/bin/brew shellenv)"
 
 # Python support : 
 # This was messing up use of venv for me so I disabled for now
@@ -73,13 +73,13 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # commented out NVM support to try out mise :
-eval "$(mise activate zsh)"
+# eval "$(mise activate zsh)"
 
 # Modifications to PATH :
 export NODE_PATH=/usr/local/lib/node_modules/
 export PATH="/usr/local/sbin:$PATH" # adding sbin to PATH for brew
 export PATH="$PATH:$HOME/.toolbox/bin"
-PATH=$(pyenv root)/shims:$PATH # python globally available
+# PATH=$(pyenv root)/shims:$PATH # python globally available
 #export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH" # openssl for brew
 #export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
 #export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"

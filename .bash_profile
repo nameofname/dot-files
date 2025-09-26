@@ -44,6 +44,7 @@ function parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/' | xargs
 }
 
+# colors:
 export LSCOLORS=cxFxCxDxBxexexaxaxaxex
 export CLICOLOR=1
 
@@ -56,9 +57,6 @@ export CLICOLOR=1
 setopt prompt_subst
 export PROMPT='%F{yellow}%n %F{green}%~ %F{red}$(parse_git_branch) %f# '
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home"
 
 # Set PATH, MANPATH, etc., for Homebrew.
@@ -67,11 +65,12 @@ eval "$(/usr/local/bin/brew shellenv)"
 # Python support : 
 # This was messing up use of venv for me so I disabled for now
 # pyenv global 2.7.18
+alias python='python3' # On OSX python3 or python2 commands may exist but not python
 
 # nvm support :
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # commented out NVM support to try out mise :
 # eval "$(mise activate zsh)"
 

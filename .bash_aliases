@@ -4,7 +4,7 @@ alias weather='curl wttr.in/new_york'
 
 alias flushdns='sudo killall -HUP mDNSResponder'
 
-alias lock="open -a /System/Library/Frameworks/ScreenSaver.framework//Versions/A/Resources/ScreenSaverEngine.app" 
+alias lock='open -a /System/Library/Frameworks/ScreenSaver.framework//Versions/A/Resources/ScreenSaverEngine.app'
 
 alias size='du -sh'
 
@@ -264,3 +264,26 @@ function makegif() {
     rm -r tmp
 }
 
+# Setup python in a given python project directory. This will 
+# run all of the python install and venv commands that I always forget 😅
+function pysetup() {
+  # Check for requirements.txt
+  if [[ ! -f "requirements.txt" ]]; then
+    echo "Error: requirements.txt not found in current directory. Ensure you call pysetup from a python project directory."
+    return 1
+  fi
+
+  # Create virtual environment if it doesn’t exist
+  if [[ ! -d ".venv" ]]; then
+    echo "📦 Creating virtual environment in .venv..."
+    python -m venv .venv || { echo "Failed to create venv"; return 1; }
+  fi
+
+  source .venv/bin/activate || { echo "Failed to activate venv"; return 1; } # Activate venv
+
+  python -m pip install --upgrade pip
+
+  pip install -r requirements.txt || { echo "Failed to install dependencies"; deactivate; return 1; }
+
+  echo "✅ Virtual environment ready and dependencies installed."
+}

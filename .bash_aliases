@@ -208,7 +208,7 @@ function curltimer() {
 
 # Recursive grep with list of common exclusions
 function ngrep() {
-    grep -inr "$1" . --exclude-dir={node_modules,.idea,.git,compiled,__snapshots__,__generated__,__fixtures__,.serverless,.yarn,.vscode,.next,build,dist,tst,test,__tests__}
+    grep -inr "$1" . --exclude-dir={node_modules,.idea,.git,compiled,__snapshots__,__generated__,__fixtures__,.serverless,.yarn,.vscode,.next,build,dist,tst,test,__tests__,.venv,__pycache__}
 }
 
 # Like ngrep but specify only javascript and typescript files
@@ -267,9 +267,14 @@ function makegif() {
 # Setup python in a given python project directory. This will 
 # run all of the python install and venv commands that I always forget 😅
 function pysetup() {
-  # Check for requirements.txt
-  if [[ ! -f "requirements.txt" ]]; then
-    echo "Error: requirements.txt not found in current directory. Ensure you call pysetup from a python project directory."
+  local dependency_mode=""
+
+  if [[ -f "requirements.txt" ]]; then
+    dependency_mode="requirements"
+  elif [[ -f "pyproject.toml" ]]; then
+    dependency_mode="pyproject"
+  else
+    echo "Error: Neither requirements.txt nor pyproject.toml found in current directory."
     return 1
   fi
 
@@ -283,7 +288,11 @@ function pysetup() {
 
   python -m pip install --upgrade pip
 
-  pip install -r requirements.txt || { echo "Failed to install dependencies"; deactivate; return 1; }
+  if [[ "$dependency_mode" == "requirements" ]]; then
+    pip install -r requirements.txt || { echo "Failed to install dependencies"; deactivate; return 1; }
+  else
+    pip install -e . || { echo "Failed to install project"; deactivate; return 1; }
+  fi
 
   echo "✅ Virtual environment ready and dependencies installed."
 }
